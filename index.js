@@ -8,8 +8,8 @@ if (typeof AFRAME === 'undefined') {
   AFRAME.registerComponent('collaboration', {
     dependencies: ['networked-scene'],
     schema: {
-      user: {default: 'rettifan'},
-      pic: {default: './GPUParticleSimulation/textures/68.jpg'},
+      user: {default: 'default'},
+      pic: {default: ''},
       avatarclass: {default: 'avatar'},
       camInfoId: {default: 'camInfo'},
       camInfoTemplate: {default: 'camera ${user}'},
