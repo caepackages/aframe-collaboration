@@ -35,10 +35,7 @@
   "license": "LicenseRef-LICENSE",
   "main": "index.js",
   "name": "aframe-collaboration",
-  "repository": {
-    "type": "git",
-    "url": "caepackages/aframe-collaboration"
-  },
+  "repository": "caepackages/aframe-collaboration",
   "scripts": {},
   "version": "1.0.0"
 }
