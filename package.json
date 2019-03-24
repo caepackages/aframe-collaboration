@@ -1,32 +1,7 @@
 {
-  "_from": "aframe-collaboration",
-  "_id": "aframe-collaboration@1.0.0",
-  "_inBundle": false,
-  "_integrity": "sha512-gYoLQoFw0GFdw8hfHEOVsWBxipCnM5a7ligEWCSJ4ZVBGMbQOwj+l9YRNxik96zB5MURSKnW6WfCkFK6ezQtgA==",
-  "_location": "/aframe-collaboration",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "aframe-collaboration",
-    "name": "aframe-collaboration",
-    "escapedName": "aframe-collaboration",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/aframe-collaboration/-/aframe-collaboration-1.0.0.tgz",
-  "_shasum": "a7554dc64a3f93cc9133ec358d192f84934fc8a8",
-  "_spec": "aframe-collaboration",
-  "_where": "",
   "author": {
     "name": "Frank Rettig"
   },
-  "bundleDependencies": false,
   "dependencies": {},
   "deprecated": false,
   "description": "aframe-collaboration",
