@@ -1,6 +1,6 @@
 {
   "author": {
-    "name": "Frank Rettig"
+    "name": "Frank Rettig <frankmrettig@gmail.com>"
   },
   "dependencies": {
     "a-frame": ">=0.7.0 <=0.8.2",
