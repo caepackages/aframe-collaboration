@@ -2,7 +2,10 @@
   "author": {
     "name": "Frank Rettig"
   },
-  "dependencies": {},
+  "dependencies": {
+    "a-frame": ">=0.7.0 <=0.8.2",
+    "networked-aframe": "0.6.1"
+  },
   "description": "aframe-collaboration",
   "devDependencies": {},
   "keywords": [],
@@ -11,5 +14,5 @@
   "name": "aframe-collaboration",
   "repository": "caepackages/aframe-collaboration",
   "scripts": {},
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
