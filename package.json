@@ -22,7 +22,7 @@
   "_resolved": "https://registry.npmjs.org/aframe-collaboration/-/aframe-collaboration-1.0.0.tgz",
   "_shasum": "a7554dc64a3f93cc9133ec358d192f84934fc8a8",
   "_spec": "aframe-collaboration",
-  "_where": "C:\\Users\\rettifan\\Desktop\\Neuer Ordner (3)",
+  "_where": "",
   "author": {
     "name": "Frank Rettig"
   },
@@ -37,7 +37,7 @@
   "name": "aframe-collaboration",
   "repository": {
     "type": "git",
-    "url": "caepackages/node/aframe-collaboration"
+    "url": "caepackages/aframe-collaboration"
   },
   "scripts": {},
   "version": "1.0.0"
