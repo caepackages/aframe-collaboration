@@ -16,3 +16,7 @@ require('aframe-collaboration');
 ```
 browserify main.js -o bundle.js
 ```
+## License
+```
+(c) Copyright 2020 Frank Rettig, all rights reserved.
+```
