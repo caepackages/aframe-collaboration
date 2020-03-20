@@ -3,7 +3,6 @@
     "name": "Frank Rettig <frankmrettig@gmail.com>"
   },
   "dependencies": {
-    "networked-aframe": "0.7"
   },
   "description": "aframe-collaboration",
   "devDependencies": {},
@@ -13,5 +12,5 @@
   "name": "aframe-collaboration",
   "repository": "caepackages/aframe-collaboration",
   "scripts": {},
-  "version": "1.0.4"
+  "version": "1.0.5"
 }
