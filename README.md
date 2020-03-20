@@ -9,6 +9,7 @@ npm i aframe-collaboration
 ```javascript
 // main.js
 require('aframe');
+require('networked-aframe');
 require('aframe-collaboration');
 ```
 
