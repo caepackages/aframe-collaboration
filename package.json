@@ -3,8 +3,7 @@
     "name": "Frank Rettig <frankmrettig@gmail.com>"
   },
   "dependencies": {
-    "aframe": "0.8.2",
-    "networked-aframe": "0.6.1"
+    "networked-aframe": "0.7"
   },
   "description": "aframe-collaboration",
   "devDependencies": {},
