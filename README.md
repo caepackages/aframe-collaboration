@@ -8,6 +8,7 @@ npm i aframe-collaboration
 
 ```javascript
 // main.js
+require('aframe');
 require('aframe-collaboration');
 ```
 
