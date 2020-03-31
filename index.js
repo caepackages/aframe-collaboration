@@ -8,15 +8,22 @@ if (typeof AFRAME === 'undefined') {
   AFRAME.registerComponent('collaboration', {
     dependencies: ['networked-scene'],
     schema: {
-      user: {default: 'default'},
-      pic: {default: ''},
+      user: {default: ''},
       avatarclass: {default: 'avatar'}
     },
 	
     init: function () {
+	  if (this.data.user.length === 0 ) {
+		  var urlPar = AFRAME.utils.getUrlParameter('user');
+		  if (urlPar.length > 0) {
+			  this.data.user = urlPar;
+		  } else {
+			  this.data.user = 'default';
+		  }
+	  }
+
       var el = this.el;
       this.useSharedCamera = false;
-      this.handleKeydown = true; 
       this.connectedClients = [];
       this.followedClientId = undefined;
       document.body.addEventListener('entityCreated', this.onEntityCreated.bind(this) );
@@ -49,7 +56,7 @@ if (typeof AFRAME === 'undefined') {
       
       if (id === this.followedClientId) {
         this.followedClientId = undefined;
-        this.releaseClientCamera();
+        this.unfollowCamera();
       }
     },   
 
@@ -64,10 +71,6 @@ if (typeof AFRAME === 'undefined') {
 		this.followCamera();
       }
     },
-    
-    releaseClientCamera: function () {  
-        this.modelCamera.setAttribute('camera', 'active:true');
-    }, 
 
     followCamera: function () {
       
@@ -81,7 +84,14 @@ if (typeof AFRAME === 'undefined') {
         var sharedCamEl = avatarEl.querySelector("[camera]");
         
         if (sharedCamEl) {
+          // activate remote-avatar
+          var remoteAvatars = document.querySelectorAll('[remote-avatar]');
+          for (var i = 0; i < remoteAvatars.length; i+= 1) {
+			remoteAvatars[i].setAttribute("remote-avatar", "active", false);
+          }			
+
           sharedCamEl.setAttribute('camera', 'active:true');
+		  this.useSharedCamera = true;
           var client = this.followedClientId;
           var user = this.getUser(client);
         } else {
@@ -106,6 +116,51 @@ if (typeof AFRAME === 'undefined') {
     },
 
     unfollowCamera: function () {
+		// activate remote-avatar
+		var remoteAvatars = document.querySelectorAll('[remote-avatar]');
+		for (var i = 0; i < remoteAvatars.length; i += 1) {
+			remoteAvatars[i].setAttribute("remote-avatar", "active", true)
+		}		
+		this.useSharedCamera = false;
         this.modelCamera.setAttribute('camera', 'active:true');
     },    
 }); 
+
+AFRAME.registerComponent('remote-avatar', {
+    schema: {
+		active : {default: true}
+    },
+	
+    init: function () {
+		this.updateFunction = AFRAME.utils.throttle(this.syncAvatar, 25, this);
+    },
+	
+  syncAvatar: function () {
+    if ( AFRAME.hasOwnProperty('scenes')) {
+		if (AFRAME.scenes.length > 0) {
+			var wp = new AFRAME.THREE.Vector3();
+			var wq = new AFRAME.THREE.Quaternion();
+			var ws = new AFRAME.THREE.Vector3();		
+			var wQuat = new AFRAME.THREE.Quaternion();		
+			var wPos = new AFRAME.THREE.Vector3();		
+			var scene = AFRAME.scenes[0];
+			var camera = scene.camera;
+			camera.updateMatrixWorld(true);
+			var wm = camera.matrixWorld;
+			wm.decompose(wp, wq, ws);
+			camera.getWorldPosition(wPos);
+			camera.getWorldQuaternion(wQuat);
+			var eul = new AFRAME.THREE.Euler().setFromQuaternion(wq, 'YXZ');
+			var angles = new AFRAME.THREE.Vector3(THREE.Math.radToDeg(eul.x), THREE.Math.radToDeg(eul.y), THREE.Math.radToDeg(eul.z));
+			this.el.setAttribute('position', wp);
+			this.el.setAttribute('rotation', angles);
+	  }
+    }
+  },
+
+  tick: function(time, delta) {
+	if (this.data.active === true) {
+		this.updateFunction();
+	}
+  },
+});
