@@ -3,6 +3,7 @@
 ## NPM
 
 ```
+npm i networked-aframe
 npm i aframe-collaboration
 ```
 
